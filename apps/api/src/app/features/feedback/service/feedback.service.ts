@@ -1,10 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateFeedbackDto } from '../dto/create-feedback.dto';
-import { Feedback } from '../interfaces/feedback.interface';
-import { GenericResponse } from '../../../common/model/generic.response';
 import * as HttpStatus from 'http-status-codes'
-
+import { Feedback, GenericResponse } from '@feedback-workspace/api-interfaces';
 @Injectable()
 export class FeedbackService {
   constructor(@Inject('FEEDBACK_MODEL') private readonly feedbackModel: Model<Feedback>) { }

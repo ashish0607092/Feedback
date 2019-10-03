@@ -1,0 +1,78 @@
+.mat-toolbar.mat-primary {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: -6px 9px 10px 0 rgba(0, 64, 128, 0.05);
+  color: #000;
+}
+.mat-card {
+  .mat-card-header-text {
+    margin: 0 4px !important;
+  }
+  &.detail-card {
+    margin-bottom: 12px;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
+    min-height: 600px;
+  }
+  &.list-card {
+    height: 100px;
+    transition: box-shadow 0.3s ease-out, transform 0.3s ease-out,
+      opacity 0.2s ease-out;
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+    &:hover {
+      box-shadow: rgba(45, 45, 45, 0.05) 0 1px 1px,
+        rgba(49, 49, 49, 0.05) 0 2px 2px, rgba(42, 42, 42, 0.05) 0 4px 4px,
+        rgba(32, 32, 32, 0.05) 0 8px 8px, rgba(49, 49, 49, 0.05) 0 16px 16px,
+        rgba(35, 35, 35, 0.05) 0 32px 32px;
+      transform: translate(0, -2px);
+    }
+  }
+}
+.mat-paginator{
+  background-color: transparent;
+}
+.mat-drawer-inner-container{
+  width: 300px !important;
+}
+
+.mat-icon{
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+}
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+}
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+}
+@media only screen and (max-device-width: 480px) {
+ /* styles for mobile browsers smaller than 480px; (iPhone) */
+ .mat-drawer-inner-container{
+  width: 100vw !important
+}
+}
+@media only screen and (device-width: 768px) {
+ /* default iPad screens */
+ .mat-drawer-inner-container{
+  width: 100vw !important
+}
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  .mat-drawer-inner-container{
+    width: 100vw !important
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+/* For landscape layouts only */
+.mat-drawer-inner-container{
+  width: 100vw !important
+}
+}

@@ -1,8 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { Feedback } from '../interfaces/feedback.interface';
 import { FeedbackService } from '../service/feedback.service';
 import { CreateFeedbackDto } from '../dto/create-feedback.dto';
-import { GenericResponse } from '../../../common/model/generic.response';
+import { GenericResponse } from '@feedback-workspace/api-interfaces';
 
 @Controller('feedback')
 export class FeedbackController {

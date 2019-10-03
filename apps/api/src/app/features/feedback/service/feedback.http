@@ -5,3 +5,6 @@ content-type: application/json
     "module": "company",
     "feedback": "Wow that's cool1"
 }
+
+###
+GET http://localhost:3333/api/feedback HTTP/1.1

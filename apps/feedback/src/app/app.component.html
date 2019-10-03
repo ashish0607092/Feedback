@@ -1,8 +1,9 @@
-<div style="text-align:center">
-  <h1>Welcome to feedback!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="over">
+    <mat-icon style="padding: 15px; cursor: pointer;" (click)="drawer.toggle()">close</mat-icon>
+  </mat-drawer>
+  <app-header></app-header>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

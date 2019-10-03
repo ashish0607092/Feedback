@@ -1,9 +1,8 @@
 import { Model } from 'mongoose';
 import { Injectable, Inject } from '@nestjs/common';
-import { GenericResponse } from '../../../common/model/generic.response';
-import * as HttpStatus from 'http-status-codes'
 import { Module } from '../interfaces/admin.interface';
 import { CreateModuleDto } from '../dto/create-module.dto';
+import { GenericResponse } from '@feedback-workspace/api-interfaces';
 
 @Injectable()
 export class AdminService {

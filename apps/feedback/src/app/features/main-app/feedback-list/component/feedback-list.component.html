@@ -1,0 +1,5 @@
+<ng-container *ngIf="(getAllFeedback$| async) let getAllFeedback">
+  <ng-container *ngFor="let feedback of getAllFeedback">
+    <app-feedback [feedback]="feedback"></app-feedback>
+  </ng-container>
+</ng-container>
