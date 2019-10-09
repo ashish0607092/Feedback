@@ -12,9 +12,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { LoaderComponent } from '../loader/loader.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [LoaderComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -28,7 +32,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   exports: [MatCardModule,
     MatToolbarModule,
@@ -41,6 +48,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatPaginatorModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule]
+    MatSidenavModule,
+    MatInputModule,
+    MatSelectModule,
+    MatMenuModule,
+    LoaderComponent]
 })
 export class MaterialModule { }

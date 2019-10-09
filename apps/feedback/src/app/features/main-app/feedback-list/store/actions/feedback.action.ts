@@ -10,3 +10,13 @@ export class GetAllFeedbackSuccess {
 export class GetAllFeedbackFailed {
   static readonly type = '[Feedback] GET_ALL_FEEDBACK_FAILED';
 }
+export class CreateFeedback {
+  static readonly type = '[Feedback] CREATE_FEEDBACK';
+  constructor(public createFeedbackPayload: Feedback) {
+  }
+}
+export class DeleteFeedback {
+  static readonly type = '[Feedback] DELETE_FEEDBACK';
+  constructor(public id: string) {
+  }
+}

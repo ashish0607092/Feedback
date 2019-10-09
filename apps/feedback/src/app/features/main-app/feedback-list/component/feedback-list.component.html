@@ -1,5 +1,15 @@
-<ng-container *ngIf="(getAllFeedback$| async) let getAllFeedback">
-  <ng-container *ngFor="let feedback of getAllFeedback">
-    <app-feedback [feedback]="feedback"></app-feedback>
-  </ng-container>
+<div class="create-feedback-area">
+  <app-create-feedback></app-create-feedback>
+</div>
+<ng-container *ngIf="isFeedbackLoading$ |async">
+  <app-loader [diameter]="100"></app-loader>
+</ng-container>
+<ng-container *ngIf="getAllFeedback$ | async as getAllFeedback">
+  <ul class="feedback-list">
+    <li *ngFor="let feedback of getAllFeedback">
+      <app-feedback [feedback]="feedback"></app-feedback>
+    </li>
+  </ul>
+  <div>
+  </div>
 </ng-container>

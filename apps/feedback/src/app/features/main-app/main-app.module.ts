@@ -7,7 +7,7 @@ import { MainAppRoutingModule } from './main-app-routing.module';
 import { MaterialModule } from '../../common/material/material.module';
 import { NgxsModule } from '@ngxs/store';
 import { FeedbackState } from './feedback-list/store/state/feedback.state';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,10 +18,11 @@ import { FeedbackState } from './feedback-list/store/state/feedback.state';
     CommonModule,
     MainAppRoutingModule,
     MaterialModule,
-    NgxsModule.forFeature([FeedbackState])
+    NgxsModule.forFeature([FeedbackState]),
+    ReactiveFormsModule
   ],
   exports: [
-    FeedbackComponent
+    FeedbackComponent,
   ]
 })
 export class MainAppModule { }

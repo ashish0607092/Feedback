@@ -7,16 +7,20 @@ import { Feedback, GenericResponse } from '@feedback-workspace/api-interfaces';
 export class FeedbackService {
   constructor(@Inject('FEEDBACK_MODEL') private readonly feedbackModel: Model<Feedback>) { }
 
-  async create(createFeedbackDto: CreateFeedbackDto): Promise<Feedback> {
+  async createFeedback(createFeedbackDto: CreateFeedbackDto): Promise<Feedback> {
     const createdFeedback = new this.feedbackModel(createFeedbackDto)
     return await createdFeedback.save();
   }
 
-  async findAll(): Promise<GenericResponse> {
+  async findAllFeedback(): Promise<GenericResponse> {
     return {
       message: HttpStatus.getStatusText(HttpStatus.OK),
       statusCode: HttpStatus.OK,
-      data: await this.feedbackModel.find().exec()
+      data: await this.feedbackModel.find().sort({ timeStamp: -1 }).exec()
     };
+  }
+  async deleteFeedback(id): Promise<GenericResponse> {
+    const deletedFeedback = await this.feedbackModel.findByIdAndRemove(id);
+    return deletedFeedback;
   }
 }

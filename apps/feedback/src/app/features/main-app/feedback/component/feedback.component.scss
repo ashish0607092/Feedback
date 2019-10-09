@@ -1,0 +1,13 @@
+.feedback-card {
+  .delete-btn {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+  &:hover {
+    .delete-btn {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

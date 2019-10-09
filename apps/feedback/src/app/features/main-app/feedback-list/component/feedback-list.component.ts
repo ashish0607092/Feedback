@@ -10,10 +10,12 @@ import { FeedbackState } from '../store/state/feedback.state';
 })
 export class FeedbackListComponent implements OnInit {
   @Select(FeedbackState.getAllFeedback) getAllFeedback$;
+  @Select(FeedbackState.isFeedbackLoading) isFeedbackLoading$;
   constructor(private store: Store) { }
 
   ngOnInit() {
     this.store.dispatch(new GetAllFeedback());
   }
+
 
 }

@@ -1,4 +1,8 @@
-export interface Feedback  {
-  readonly feedback: string;
+import { Document } from 'mongoose';
+
+export interface Feedback extends Document {
   readonly module: string;
+  readonly feedback: string;
+  readonly timeStamp?: number;
+  readonly feedbackId?: string;
 }

@@ -1,1 +1,13 @@
-<p>create-feedback works!</p>
+<mat-form-field class="full-width" appearance="outline">
+  <mat-label>Add Feedback</mat-label>
+  <textarea matInput placeholder="Add Feedback" [formControl]="feedbackControl"></textarea>
+</mat-form-field>
+<button mat-button mat-stroked-button color="primary" class="float-right mtop-8"
+  [disabled]="feedbackControl.invalid" (click)="addFeedback()"> Add</button>
+<button mat-button [matMenuTriggerFor]="menu" class="float-right mtop-8">{{moduleName}} <mat-icon>keyboard_arrow_down
+  </mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="menuClosed('Item 1')">Item 1</button>
+  <button mat-menu-item (click)="menuClosed('Item 2')">Item 2</button>
+</mat-menu>
