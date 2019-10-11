@@ -1,0 +1,13 @@
+<app-create-module></app-create-module>
+<ng-container *ngIf="isModuleLoading$ |async">
+  <app-loader [diameter]="100"></app-loader>
+</ng-container>
+<ng-container *ngIf="getAllModule$ | async as getAllModule">
+  <ul class="list">
+    <li *ngFor="let module of getAllModule">
+      <app-module [module]="module"></app-module>
+    </li>
+  </ul>
+  <div>
+  </div>
+</ng-container>

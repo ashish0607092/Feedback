@@ -1,4 +1,8 @@
 <mat-toolbar color="primary">
   <!-- <mat-icon clas="show-cursor-pointer" (click)="openDrawer()">menu</mat-icon> -->
-  <button mat-button [routerLink]="['/app/feedback']">Feedbacks</button>
+  <div class="full-width">
+    <button mat-button [routerLink]="['/app/feedback']">Feedbacks</button>
+    <button mat-button [routerLink]="['/admin/module']" class="float-right">Admin</button>
+  </div>
+
 </mat-toolbar>

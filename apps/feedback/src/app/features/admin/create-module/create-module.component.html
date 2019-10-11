@@ -1,0 +1,15 @@
+<div class="create-area">
+  <form [formGroup]="moduleForm">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Module Name</mat-label>
+      <input matInput placeholder="Enter Module Name" formControlName="moduleControl"  required/>
+    </mat-form-field>
+    <mat-error *ngIf="moduleForm.controls['moduleControl'].hasError('required')  && moduleForm.controls['moduleControl'].touched">Module Name is required</mat-error>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Module Description</mat-label>
+      <textarea matInput placeholder="Enter Module Description" formControlName="moduleDescriptionControl"></textarea>
+    </mat-form-field>
+  </form>
+  <button mat-button mat-stroked-button color="primary" class="float-right mtop-8" [disabled]="moduleForm.invalid"
+    (click)="addModule()"> Add </button>
+</div>
