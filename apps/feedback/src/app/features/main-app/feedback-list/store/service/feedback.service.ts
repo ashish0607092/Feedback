@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http'
-import { of, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
+import {  Observable } from 'rxjs';
 import { FeedBackResponse } from '../model/feedback.response';
 import { API_URL, Feedback } from '@feedback-workspace/api-interfaces';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

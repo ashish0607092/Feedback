@@ -3,4 +3,5 @@ export class CreateFeedbackDto {
   readonly feedback: string;
   readonly timeStamp: number;
   readonly feedbackId: string;
+  readonly moduleColor: string;
 }

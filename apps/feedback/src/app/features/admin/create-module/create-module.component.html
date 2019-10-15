@@ -2,13 +2,21 @@
   <form [formGroup]="moduleForm">
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Module Name</mat-label>
-      <input matInput placeholder="Enter Module Name" formControlName="moduleControl"  required/>
+      <input matInput placeholder="Enter Module Name" formControlName="moduleControl" required />
     </mat-form-field>
-    <mat-error *ngIf="moduleForm.controls['moduleControl'].hasError('required')  && moduleForm.controls['moduleControl'].touched">Module Name is required</mat-error>
+    <mat-error
+      *ngIf="moduleForm.controls['moduleControl'].hasError('required')  && moduleForm.controls['moduleControl'].touched">
+      Module Name is required</mat-error>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Module Description</mat-label>
       <textarea matInput placeholder="Enter Module Description" formControlName="moduleDescriptionControl"></textarea>
     </mat-form-field>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Color Name</mat-label>
+      <input matInput placeholder="Color" formControlName="moduleColorControl" />
+    </mat-form-field>
+    <color-circle [width]="'100%'" [color]="state" (onChangeComplete)="changeComplete($event)" [colors]="colorArray">
+    </color-circle>
   </form>
   <button mat-button mat-stroked-button color="primary" class="float-right mtop-8" [disabled]="moduleForm.invalid"
     (click)="addModule()"> Add </button>

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, HttpStatus, Res } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpStatus, Res, Delete, Param } from '@nestjs/common';
 import { AdminService } from '../service/admin.service';
 import { CreateModuleDto } from '../dto/create-module.dto';
 import { Response } from 'express';
@@ -34,5 +34,9 @@ export class AdminController {
       message: "OK",
       statusCode: HttpStatus.OK
     });
+  }
+  @Delete('/module/:id')
+  async deleteModule(@Param('id') id: string): Promise<GenericResponse> {
+    return this.adminService.deleteModule(id);
   }
 }

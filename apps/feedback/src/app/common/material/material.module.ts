@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoaderComponent } from '../loader/loader.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [LoaderComponent],
@@ -35,7 +36,8 @@ import { LoaderComponent } from '../loader/loader.component';
     MatSidenavModule,
     MatInputModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule
   ],
   exports: [MatCardModule,
     MatToolbarModule,
@@ -52,6 +54,7 @@ import { LoaderComponent } from '../loader/loader.component';
     MatInputModule,
     MatSelectModule,
     MatMenuModule,
-    LoaderComponent]
+    LoaderComponent,
+    MatChipsModule]
 })
 export class MaterialModule { }

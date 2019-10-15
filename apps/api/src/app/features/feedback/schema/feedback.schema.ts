@@ -6,6 +6,7 @@ export const FeedBackSchema = new mongoose.Schema({
     required: true,
   },
   module: String,
+  moduleColor: String,
   timeStamp: {
     type: Number,
     required: true,

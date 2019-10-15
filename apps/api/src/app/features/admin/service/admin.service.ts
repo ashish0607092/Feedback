@@ -33,6 +33,10 @@ export class AdminService {
   async getAllModule(): Promise<GenericResponse> {
     return await this.adminModel.find().exec();
   }
+  async deleteModule(id): Promise<GenericResponse> {
+    const deletedFeedback = await this.adminModel.findByIdAndRemove(id);
+    return deletedFeedback;
+  }
   async checkIfModuleExists(moduleName: string): Promise<boolean> {
     return await this.adminModel.find({ slug: moduleName }).exec().then(async document => {
       if (document.length > 0 && (document[0].slug === moduleName)) {

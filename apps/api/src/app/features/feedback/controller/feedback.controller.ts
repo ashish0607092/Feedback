@@ -12,7 +12,6 @@ export class FeedbackController {
     const createFeedbackPayload: CreateFeedbackDto = {
       ...createFeedbackDto,
       timeStamp: new Date().getTime()
-
     }
     this.feedbackService.createFeedback(createFeedbackPayload);
   }

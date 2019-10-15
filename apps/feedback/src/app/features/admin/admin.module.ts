@@ -8,6 +8,8 @@ import { CreateModuleComponent } from './create-module/create-module.component';
 import { ModuleListComponent } from './module-list/component/module-list.component';
 import { NgxsModule } from '@ngxs/store';
 import { ModuleState } from './module-list/store/state/module.state';
+import { ColorCircleModule } from 'ngx-color/circle';
+
 @NgModule({
   declarations: [ModuleComponent, CreateModuleComponent, ModuleListComponent],
   imports: [
@@ -15,7 +17,8 @@ import { ModuleState } from './module-list/store/state/module.state';
     AdminRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    NgxsModule.forFeature([ModuleState])
+    NgxsModule.forFeature([ModuleState]),
+    ColorCircleModule
   ]
 })
 export class AdminModule { }

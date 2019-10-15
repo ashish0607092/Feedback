@@ -2,6 +2,12 @@
   <mat-icon class="float-right delete-btn" (click)="deleteFeedback(feedback)">delete</mat-icon>
   <mat-card-header>
     <mat-card-title>{{feedback.feedback}}</mat-card-title>
-    <mat-card-subtitle>{{feedback.module}}</mat-card-subtitle>
+    <mat-card-subtitle>
+      <mat-chip-list *ngIf="feedback.module">
+        <mat-chip [ngStyle]="{'background-color':feedback.moduleColor}">
+          <p class="captalize">{{feedback.module}}</p>
+        </mat-chip>
+      </mat-chip-list>
+    </mat-card-subtitle>
   </mat-card-header>
 </mat-card>

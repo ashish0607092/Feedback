@@ -8,6 +8,7 @@ import { MaterialModule } from '../../common/material/material.module';
 import { NgxsModule } from '@ngxs/store';
 import { FeedbackState } from './feedback-list/store/state/feedback.state';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModuleState } from '../admin/module-list/store/state/module.state';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MainAppRoutingModule,
     MaterialModule,
-    NgxsModule.forFeature([FeedbackState]),
+    NgxsModule.forFeature([FeedbackState,
+      ModuleState]),
     ReactiveFormsModule
   ],
   exports: [

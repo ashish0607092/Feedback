@@ -2,12 +2,15 @@
   <mat-label>Add Feedback</mat-label>
   <textarea matInput placeholder="Add Feedback" [formControl]="feedbackControl"></textarea>
 </mat-form-field>
-<button mat-button mat-stroked-button color="primary" class="float-right mtop-8"
-  [disabled]="feedbackControl.invalid" (click)="addFeedback()"> Add</button>
+<button mat-button mat-stroked-button color="primary" class="float-right mtop-8" [disabled]="feedbackControl.invalid"
+  (click)="addFeedback()"> Add</button>
 <button mat-button [matMenuTriggerFor]="menu" class="float-right mtop-8">{{moduleName}} <mat-icon>keyboard_arrow_down
   </mat-icon>
 </button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="menuClosed('Item 1')">Item 1</button>
-  <button mat-menu-item (click)="menuClosed('Item 2')">Item 2</button>
-</mat-menu>
+  <ng-container *ngIf="(getAllModule$ | async); let getAllModule">
+    <ng-container *ngFor="let module of getAllModule">
+      <button mat-menu-item (click)="menuClosed(module)">{{module.name}}</button>
+    </ng-container>
+  </ng-container>
+  </mat-menu>

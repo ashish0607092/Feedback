@@ -51,6 +51,21 @@
 .mat-error {
   font-size: 12px;
 }
+.mat-standard-chip{
+  min-height: 20px !important;
+}
+.mat-menu-panel{
+  min-height: 0px!important;
+}
+.mat-menu-content:not(:empty){
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+}
+.mat-chip-list-wrapper::after{
+  mix-blend-mode: difference;
+  color: white;
+}
 
 @media only screen and (min-width: 960px) {
   /* styles for browsers larger than 960px; */
