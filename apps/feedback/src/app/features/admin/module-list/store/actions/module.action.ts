@@ -15,6 +15,11 @@ export class CreateModule {
   constructor(public createModulePayload: Module) {
   }
 }
+export class UploadFile {
+  static readonly type = '[Module] UPLOAD_FILE';
+  constructor(public file: any) {
+  }
+}
 export class DeleteModule {
   static readonly type = '[Module] DELETE_MODULE';
   constructor(public id: string) {

@@ -3,7 +3,7 @@ import { tap, catchError } from 'rxjs/operators';
 import * as HttpStatus from 'http-status-codes'
 import { ModuleStateModel } from '../model/module.state.model';
 import { AppState } from '../../../../../app.state.model';
-import { GetAllModule, GetAllModuleSuccess, GetAllModuleFailed, CreateModule, DeleteModule } from '../actions/module.action';
+import { GetAllModule, GetAllModuleSuccess, GetAllModuleFailed, CreateModule, DeleteModule, UploadFile } from '../actions/module.action';
 import { ModuleService } from '../service/module.service';
 
 @State<ModuleStateModel>({
@@ -45,31 +45,21 @@ export class ModuleState {
       })
     );
   }
-  @Action(CreateModule)
-  createModule(ctx: StateContext<ModuleStateModel>, event: CreateModule) {
-    ctx.patchState({
-      moduleLoading: true
-    })
-    return this.moduleService.createModule(event.createModulePayload).pipe(
+  @Action(UploadFile)
+  uploadFile(ctx: StateContext<ModuleStateModel>, event: UploadFile) {
+    return this.moduleService.uploadFile(event.file).pipe(
       tap(res => {
         if (res.status === HttpStatus.CREATED) {
-          ctx.patchState({
-            moduleLoading: false,
-            moduleCreated: true,
-          })
-          ctx.dispatch(new GetAllModule());
-          this.resetValue(ctx, { ModuleCreated: false });
         } else {
-          ctx.patchState({
-            moduleLoading: false
-          })
         }
       }),
       catchError(err => {
         return err;
       })
     );
-  } @Action(DeleteModule)
+  }
+
+  @Action(DeleteModule)
   deleteModule(ctx: StateContext<ModuleStateModel>, event: DeleteModule) {
     ctx.patchState({
       moduleLoading: true

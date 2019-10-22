@@ -18,6 +18,9 @@
     <color-circle [width]="'100%'" [color]="state" (onChangeComplete)="changeComplete($event)" [colors]="colorArray">
     </color-circle>
   </form>
+  <div class="form-group">
+    <input type="file" id="file" accept=".csv" (change)="handleFileInput($event.target.files)">
+  </div>
   <button mat-button mat-stroked-button color="primary" class="float-right mtop-8" [disabled]="moduleForm.invalid"
     (click)="addModule()"> Add </button>
 </div>

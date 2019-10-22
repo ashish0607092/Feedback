@@ -20,4 +20,9 @@ export class ModuleService {
   deleteModule(id: string) {
     return this.httpClient.delete(API_URL.API_BASE_URL + API_URL.MODULE + '/' + id, { observe: 'response' });
   }
+  uploadFile(fileToUpload: File) {
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    return this.httpClient.post(API_URL.API_BASE_URL + API_URL.UPLOAD_FILE, formData, { observe: 'response' });
+  }
 }

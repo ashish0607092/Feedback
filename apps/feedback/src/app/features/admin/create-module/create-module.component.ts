@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
-import { CreateModule } from '../module-list/store/actions/module.action';
+import { CreateModule, UploadFile } from '../module-list/store/actions/module.action';
 import { Module } from '@feedback-workspace/api-interfaces';
 import { ColorEvent } from 'ngx-color';
 import { ModuleState } from '../module-list/store/state/module.state';
@@ -21,6 +21,7 @@ export class CreateModuleComponent implements OnInit {
   colorArray = ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080']
   state = ''
   private createModuleSubs = new SubSink();
+  fileToUpload: File = null;
   constructor(private store: Store) { }
 
   ngOnInit() {
@@ -40,6 +41,11 @@ export class CreateModuleComponent implements OnInit {
       colorCode: this.moduleColor.value
     }
     this.store.dispatch(new CreateModule(createModulePayload));
+  }
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.store.dispatch(new UploadFile(this.fileToUpload));
+    console.log(this.fileToUpload);
   }
   get moduleName() {
     return this.moduleForm.controls.moduleControl;

@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './common/material/material.module';
 import { HeaderComponent } from './header/header.component';
 import { environment } from '../environments/environment';
-
 @NgModule({
   declarations: [AppComponent,
     HeaderComponent],
