@@ -4,4 +4,5 @@ export class ModuleStateModel {
   moduleCreated: boolean;
   moduleDeleted: boolean;
   module: Array<Module>;
+  fileUploaded: boolean;
 }

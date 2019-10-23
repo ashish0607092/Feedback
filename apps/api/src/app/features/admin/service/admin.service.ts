@@ -26,10 +26,7 @@ export class AdminService {
         });
       }
     })
-
-
   }
-
   async getAllModule(): Promise<GenericResponse> {
     return await this.adminModel.find().exec();
   }

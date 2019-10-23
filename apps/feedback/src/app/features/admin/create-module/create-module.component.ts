@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Store, Select } from '@ngxs/store';
 import { CreateModule, UploadFile } from '../module-list/store/actions/module.action';
@@ -13,6 +13,7 @@ import { SubSink } from 'subsink';
 })
 export class CreateModuleComponent implements OnInit {
   @Select(ModuleState.isModuleCreated) isModuleCreated$;
+  @ViewChild("file", { static: false }) file;
   moduleForm = new FormGroup({
     moduleControl: new FormControl('', Validators.required),
     moduleDescriptionControl: new FormControl(''),
@@ -22,6 +23,7 @@ export class CreateModuleComponent implements OnInit {
   state = ''
   private createModuleSubs = new SubSink();
   fileToUpload: File = null;
+  name = 'Upload Csv';
   constructor(private store: Store) { }
 
   ngOnInit() {
@@ -45,7 +47,11 @@ export class CreateModuleComponent implements OnInit {
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
     this.store.dispatch(new UploadFile(this.fileToUpload));
-    console.log(this.fileToUpload);
+    this.name = this.fileToUpload.name;
+    this.file.nativeElement.value = "";
+  }
+  browseFile() {
+    this.file.nativeElement.click();
   }
   get moduleName() {
     return this.moduleForm.controls.moduleControl;

@@ -12,11 +12,16 @@ import { ModuleService } from '../service/module.service';
     moduleLoading: false,
     module: [],
     moduleCreated: false,
-    moduleDeleted: false
+    moduleDeleted: false,
+    fileUploaded: false
   }
 })
 export class ModuleState {
   constructor(private moduleService: ModuleService) { }
+  @Selector()
+  static fileUploaded(state: ModuleStateModel) {
+    return state.fileUploaded;
+  }
   @Selector()
   static isModuleLoading(state: ModuleStateModel) {
     return state.moduleLoading;
@@ -49,7 +54,11 @@ export class ModuleState {
   uploadFile(ctx: StateContext<ModuleStateModel>, event: UploadFile) {
     return this.moduleService.uploadFile(event.file).pipe(
       tap(res => {
-        if (res.status === HttpStatus.CREATED) {
+        if (res.status === HttpStatus.OK) {
+          ctx.dispatch(new GetAllModule());
+          ctx.patchState({
+            fileUploaded: true
+          })
         } else {
         }
       }),
